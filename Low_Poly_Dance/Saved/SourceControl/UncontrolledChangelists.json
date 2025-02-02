@@ -1,0 +1,29 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/StarterContent/Architecture/Floor_400x400.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/final/META_Heartbeat.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/final/Ikebukuro_Heartbeat_-_Aux_Fidelity_CUE.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/final/test/meta2.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Maps/Map_dance.umap",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/Heartbeat/Top_Ten_Video_Game_Songs___10__Katamari_on_the_Rocks___Main_Theme_-_Katamari_Damacy_01_cue.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/Heartbeat/Top_Ten_Video_Game_Songs___10__Katamari_on_the_Rocks___Main_Theme_-_Katamari_Damacy_01.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/Heartbeat/Ikebukuro-Heartbeat-Aux-Fidelity_with_cue_TEST.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/Heartbeat/Ikebukuro-Heartbeat-Aux-Fidelity_with_cue.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/Heartbeat/TEST_META.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/Heartbeat/Top_Ten_Video_Game_Songs___10__Katamari_on_the_Rocks___Main_Theme_-_Katamari_Damacy_TEST.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/Heartbeat/Heartbeat_MetaSound.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/Heartbeat/META_Heartbeat.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/Musiques/Heartbeat/Ikebukuro_Heartbeat_-_Aux_Fidelity_CUE.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/BP_spline.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Dance_game/suite/UI/NewGameMode.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/UI/Notes/M_Transparent.uasset",
+				"C:/Users/Damien/Documents/Ati 2024_2025/Unreal/GIT_Rythme_Game/Low_Poly_Dance/Content/Base_Damien/Music_tools/BP_note.uasset"
+			]
+		}
+	]
+}

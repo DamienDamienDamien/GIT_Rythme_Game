@@ -1,19 +1,12 @@
-from pathlib import Path
-import librosa
-import numpy as np
-import matplotlib.pyplot as plt
-import sys
-from PySide6.QtWidgets import (QApplication, QCheckBox, QMainWindow, QVBoxLayout, QLabel, QLineEdit, QPushButton, QFileDialog, QWidget, QTableWidget, QTableWidgetItem, QHBoxLayout, QProgressBar, QTabWidget, QSpacerItem, QSizePolicy,QGroupBox, QFrame)
-from PySide6.QtCore import Qt, QThread
-from PySide6.QtGui import QDoubleValidator
-import csv
-import subprocess
+from libraries import *
+from music import listen
+from metadata import modify_names, shuffle, update_table_new
 
 #_______________________________________________INTERFACE____________________________________________________________________________________________
 class UIapp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.resize(470, 650)
+        self.resize(470, 1000)
         self.setWindowTitle("Damien's Peak detector")
         self.waveform_files = ["drums", "bass", "vocals", "other"]
 
@@ -52,6 +45,15 @@ class UIapp(QMainWindow):
             verticalZ1_layout.addWidget(self.button_input)
             self.label_input = QLabel("Aucun Input sélectionné")
             verticalZ1_layout.addWidget(self.label_input)
+
+            # Bouton LECTURE
+            self.button_listen = QPushButton("Ecouter")
+            # Modification dans le fichier principal où vous gérez l'interface
+            self.button_listen.clicked.connect(self.listen_file)
+            verticalZ1_layout.addWidget(self.button_listen)
+            self.label_listen = QLabel("music")
+            verticalZ1_layout.addWidget(self.label_listen)
+
 
             # Bouton 2 OUTPUT
             self.button_output = QPushButton("Entrez l'emplacement de sauvegarde")
@@ -178,7 +180,7 @@ class UIapp(QMainWindow):
             for direction, color in directions.items():
                 button_direction = QPushButton(direction)
                 button_direction.setStyleSheet(f"background-color: {color};")
-                button_direction.clicked.connect(lambda _, dir=direction: self.modify_names(dir))
+                button_direction.clicked.connect(lambda _, dir=direction: modify_names(self, dir))
                 direction_layout.addWidget(button_direction)
 
             container_bas_layout.addLayout(direction_layout)
@@ -187,7 +189,15 @@ class UIapp(QMainWindow):
             layout.addLayout(verticalZ2_layout)
             self.shared_area.setLayout(layout)
 
+            # Bouton random
+            self.button_random = QPushButton("Randomizer")
+            self.button_random.clicked.connect(lambda: shuffle(self))
+            self.button_random.setStyleSheet(f"background-color: {self.button_color};")
+            container_bas_layout.addWidget(self.button_random)
+
+
 #_______________________________FONCTIONS_________________________________
+
 
     # activation/désactivation des boutons
     def toggle_secondary_area(self):
@@ -300,7 +310,8 @@ class UIapp(QMainWindow):
         plt.show()
 
     def update_table(self):
-        if self.peak_times is None or self.peak_amps is None:
+      update_table_new(self)
+      """  if self.peak_times is None or self.peak_amps is None:
             return
         self.table.setRowCount(0)
         for i, (t, a) in enumerate(zip(self.peak_times, self.peak_amps)):
@@ -308,13 +319,13 @@ class UIapp(QMainWindow):
             checkbox = QCheckBox()
             checkbox.setChecked(True)
             formatted_time = self.format_time(t)
-            m_name = f"marqueur_{i+1}"
+            m_name = f"marqueur_000{i+1}"
             self.table.insertRow(i)
             name_item = QTableWidgetItem(m_name)
             self.table.setCellWidget(i, 0, checkbox)
             self.table.setItem(i, 1, name_item)
             self.table.setItem(i, 2, QTableWidgetItem(formatted_time))
-            self.table.setItem(i, 3, QTableWidgetItem(f"{a:.2f}"))
+            self.table.setItem(i, 3, QTableWidgetItem(f"{a:.2f}"))"""
 
     def select_all(self):
         for row in range(self.table.rowCount()):
@@ -325,27 +336,6 @@ class UIapp(QMainWindow):
         for row in range(self.table.rowCount()):
             checkbox = self.table.cellWidget(row, 0)
             checkbox.setChecked(False)
-
-    def modify_names_up(self):
-        self.modify_names("Haut")
-
-    def modify_names_down(self):
-        self.modify_names("Bas")
-
-    def modify_names_left(self):
-        self.modify_names("Gauche")
-
-    def modify_names_right(self):
-        self.modify_names("Droite")
-
-    def modify_names(self, direction):
-        for row in range(self.table.rowCount()):
-            checkbox = self.table.cellWidget(row, 0)
-            if checkbox.isChecked():
-                current_name_item = self.table.item(row, 1)
-                current_name = current_name_item.text()
-                new_name = f"{direction}"
-                current_name_item.setText(new_name)
 
     def create_csv_file(self):
         if self.peak_times is None or self.peak_amps is None:
@@ -420,7 +410,14 @@ class UIapp(QMainWindow):
             return
         
         self.plot_waveforms(track_path)
-        
+
+    def listen_file(self):
+        file_path = self.label_input.text()  # Récupérer le chemin du fichier depuis l'interface
+        if not file_path:
+            print("Aucun fichier sélectionné pour l'écoute.")
+            return
+        listen(file_path)  # Assurez-vous que la fonction listen attend un chemin de fichier en paramètre    
+
 #__________________EXECUTE_________________
 
 if __name__ == "__main__":
